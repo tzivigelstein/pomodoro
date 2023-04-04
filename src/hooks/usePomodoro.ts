@@ -70,7 +70,6 @@ export default function usePomodoro({
 
   useEffect(() => {
     if (currentStatus !== Status.still) {
-      console.log(pomodorosCount)
       if (pomodorosCount <= POMODOROS_LIMIT) {
         setPomodorosCount((prev) => prev + 1)
       } else {
@@ -97,7 +96,7 @@ export default function usePomodoro({
       })
     }
 
-    intervalReference = setInterval(updateCounter, 5)
+    intervalReference = setInterval(updateCounter, 1000)
   }
 
   function pauseCounter() {
