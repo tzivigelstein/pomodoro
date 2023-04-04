@@ -36,7 +36,10 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <button onClick={() => setShowSettings((prev) => !prev)}>
+      <button
+        onClick={() => setShowSettings((prev) => !prev)}
+        className={styles.settingsButton}
+      >
         <Settings />
       </button>
       <SettingsModal
@@ -82,8 +85,11 @@ function App() {
           </div>
         </div>
       </SettingsModal>
-      {showStage && <span>{currentStatus}</span>}
-      <Progress time={counter} currentStatus={currentStatus} />
+      <Progress
+        time={counter}
+        showStage={showStage}
+        currentStatus={currentStatus}
+      />
       <Controls
         counter={counter}
         isCounterRunning={isCounterRunning}
