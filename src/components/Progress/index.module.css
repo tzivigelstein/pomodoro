@@ -1,0 +1,30 @@
+.progress {
+  --width: 350px;
+  --border-percentage: 12%;
+
+  width: var(--width);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) 360deg, white 0deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.progress::before {
+  content: '';
+  position: absolute;
+  background-color: var(--primary);
+  border-radius: 50%;
+  width: calc(var(--width) - var(--border-percentage));
+  aspect-ratio: 1 / 1;
+  z-index: 2;
+}
+
+.time {
+  font-size: 125px;
+  font-weight: bold;
+  z-index: 3;
+  position: relative;
+}

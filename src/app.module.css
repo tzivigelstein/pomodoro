@@ -1,0 +1,21 @@
+.container {
+  display: grid;
+  place-items: center;
+  gap: 2rem;
+}
+
+.settingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settingText {
+  font-size: 1.0625rem;
+}
