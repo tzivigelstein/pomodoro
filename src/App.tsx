@@ -6,7 +6,7 @@ import NumberInput from './components/NumberInput'
 import Progress from './components/Progress'
 import SettingsModal from './components/SettingsModal'
 import Switch from './components/Switch'
-import usePomodoro from './hooks/usePomodoro'
+import usePomodoro, { Status } from './hooks/usePomodoro'
 import useSettings from './hooks/useSettings'
 
 function App() {
@@ -63,6 +63,7 @@ function App() {
               value={workingTime}
               onChange={update}
               step={5}
+              disabled={currentStatus !== Status.still}
             />
           </div>
           <div className={styles.setting}>
@@ -72,6 +73,7 @@ function App() {
               value={restingTime}
               onChange={update}
               step={1}
+              disabled={currentStatus !== Status.still}
             />
           </div>
           <div className={styles.setting}>
@@ -81,8 +83,14 @@ function App() {
               value={longRestingTime}
               onChange={update}
               step={5}
+              disabled={currentStatus !== Status.still}
             />
           </div>
+          {currentStatus !== Status.still && (
+            <p className={styles.runningMessage}>
+              End the timer to update time configuration
+            </p>
+          )}
         </div>
       </SettingsModal>
       <Progress
