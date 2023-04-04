@@ -9,12 +9,13 @@ type Props = {
   name: SettingsKeys
   onChange: (name: SettingsKeys, value: number) => void
   step?: number
+  disabled: boolean
 }
 
 const UPPER_LIMIT = 55
 const LOWER_LIMIT = 5
 
-function NumberInput({ name, value, step = 1, onChange }: Props) {
+function NumberInput({ name, value, step = 1, onChange, disabled }: Props) {
   const handleDecrement = () =>
     onChange(name, Math.max(value - step, LOWER_LIMIT))
   const handleIncrement = () =>
@@ -29,13 +30,27 @@ function NumberInput({ name, value, step = 1, onChange }: Props) {
 
   return (
     <div className={styles.container}>
-      {value !== defaultSettings[name] && <ResetButton onClick={handleReset} />}
+      {value !== defaultSettings[name] && !disabled && (
+        <ResetButton onClick={handleReset} />
+      )}
       <div className={styles.numberInput}>
-        <button disabled={isDecrementDisabled} onClick={handleDecrement}>
+        <button
+          style={{
+            cursor: isDecrementDisabled || disabled ? 'not-allowed' : 'pointer',
+          }}
+          disabled={isDecrementDisabled || disabled}
+          onClick={handleDecrement}
+        >
           -
         </button>
         <span>{value}</span>
-        <button disabled={isIncrementDisabled} onClick={handleIncrement}>
+        <button
+          style={{
+            cursor: isDecrementDisabled || disabled ? 'not-allowed' : 'pointer',
+          }}
+          disabled={isIncrementDisabled || disabled}
+          onClick={handleIncrement}
+        >
           +
         </button>
       </div>
