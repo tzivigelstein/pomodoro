@@ -1,3 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
 .progress {
   --width: 350px;
   --border-percentage: 12%;
@@ -10,6 +17,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  flex-direction: column;
 }
 
 .progress::before {
@@ -27,4 +35,10 @@
   font-weight: bold;
   z-index: 3;
   position: relative;
+}
+
+.currentStatus {
+  position: relative;
+  z-index: 3;
+  color: #2d2d2d;
 }
