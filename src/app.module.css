@@ -2,6 +2,22 @@
   display: grid;
   place-items: center;
   gap: 2rem;
+  position: relative;
+  height: 100%;
+}
+
+.settingsButton {
+  top: 0;
+  right: 0;
+  display: flex;
+  aspect-ratio: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  padding: 1rem;
+  cursor: pointer;
+  border: none;
+  position: absolute;
 }
 
 .settingsList {
